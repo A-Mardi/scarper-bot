@@ -10,7 +10,7 @@ import time
 service = Service(executable_path="chromedriver.exe")
 driver = webdriver.Chrome(service=service)
 
-base_url = "https://books.toscrape.com/"
+base_url = "https://books.toscrape.com/catalogue/page-{}.html"
 max_number = 3
 
 def get_book(url):
@@ -26,21 +26,24 @@ def get_book(url):
         book_data.append([title, price, availability])
     return book_data
 
-def scarpe_pages():
+def scrape_pages():
     page_number = 1
     all_books = []
     while True:
         print(f"Scraping page {page_number}")
         current_url = base_url.format(page_number)
-        books = get_book(base_url)
+        books = get_book(current_url)
         all_books.extend(books)
 
         if len(books) == 0:
+            print("No more books found.")
             break
         if page_number >= max_number:
+            print(f"Reached the maximum number of pages: {max_number}")
             break
-        page_number += 1
+        page_number += 1    
+    return all_books
 
 if __name__ == "__main__":
-    scarpe_pages()
+    all_books = scrape_pages() 
 driver.quit()
