@@ -1,3 +1,5 @@
+## Most of the code Below is based on a Selenium tutorial by the 'Tech with Tim' channel on youtube 
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
