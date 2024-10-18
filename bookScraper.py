@@ -26,3 +26,21 @@ def get_book(url):
         book_data.append([title, price, availability])
     return book_data
 
+def scarpe_pages():
+    page_number = 1
+    all_books = []
+    while True:
+        print(f"Scraping page {page_number}")
+        current_url = base_url.format(page_number)
+        books = get_book(base_url)
+        all_books.extend(books)
+
+        if len(books) == 0:
+            break
+        if page_number >= max_number:
+            break
+        page_number += 1
+
+if __name__ == "__main__":
+    scarpe_pages()
+driver.quit()
