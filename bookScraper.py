@@ -44,6 +44,12 @@ def scrape_pages():
         page_number += 1    
     return all_books
 
+def display_books(book_data):
+    for book in book_data:
+        title, price, availability = book
+        print(f"Title: {title}\nPrice: {price}\nAvailability: {availability}\n")
+
 if __name__ == "__main__":
     all_books = scrape_pages() 
+    display_books(all_books)
 driver.quit()
