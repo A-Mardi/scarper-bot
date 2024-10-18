@@ -27,7 +27,7 @@ def get_book(url):
     return book_data
 
 def scrape_pages():
-    page_number = 1
+    page_number = 4
     all_books = []
     while True:
         print(f"Scraping page {page_number}")
@@ -50,7 +50,7 @@ def display_books(book_data):
         print(f"Title: {title}\nPrice: {price}\nAvailability: {availability}\n")
 
 def write_to_csv(book_data):
-    with open('scrapedBooks.csv', mode='w', newline='', encoding='utf-8') as file:
+    with open('scrapedBooks.csv', mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(['Title', 'Price', 'Availability'])
         for book in book_data:
