@@ -49,7 +49,15 @@ def display_books(book_data):
         title, price, availability = book
         print(f"Title: {title}\nPrice: {price}\nAvailability: {availability}\n")
 
+def write_to_csv(book_data):
+    with open('scrapedBooks.csv', mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(['Title', 'Price', 'Availability'])
+        for book in book_data:
+            writer.writerow(book)
+
 if __name__ == "__main__":
     all_books = scrape_pages() 
     display_books(all_books)
+    write_to_csv(all_books)
 driver.quit()
