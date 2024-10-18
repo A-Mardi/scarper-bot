@@ -21,7 +21,7 @@ def get_book(url):
     book_data = []
     for book in books:
         title = book.h3.a['title']
-        price = book.find('p', class_='price_color').text
+        price = book.find('p', class_='price_color').text[2:].strip()
         availability = book.find('p', class_='instock availability').text.strip()
         book_data.append([title, price, availability])
     return book_data
