@@ -15,6 +15,10 @@ class TestBooksToScrape(unittest.TestCase):
         title = self.driver.title
         self.assertEqual(title, "Books to Scrape")
 
+    def test_pagination(self):
+        self.driver.get("https://books.toscrape.com/catalogue/page-2.html")
+        self.assertEqual(self.driver.title, "Books to Scrape - page 2")
+
     @classmethod
     def tearDownClass(cls):
         time.sleep(10)
