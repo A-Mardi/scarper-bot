@@ -35,11 +35,10 @@ def get_jobs(url):
                 # Extract other relevant details
                 job_link = job_card.find_element(By.CLASS_NAME, "gm-card-link").get_attribute('href')
                 company_name = job_card.find_element(By.CLASS_NAME, "gm-card-subtitle").text
-                location = job_card.find_element(By.XPATH, './/i[@class="fa fa-map-marker"]/following-sibling::text()').strip()
                 date_posted = job_card.find_element(By.CLASS_NAME, "gm-card-timestamp").text
                 
                 # Append job details to the list
-                job_data.append([title, company_name, location, date_posted, job_link])
+                job_data.append([title, company_name, date_posted, job_link])
 
         except Exception as e:
             print(f"Error extracting job details: {e}")
@@ -47,7 +46,7 @@ def get_jobs(url):
     return job_data
 
 def scrape_pages():
-    page_number = 1
+    page_number = 2
     all_jobs = []
 
     while True:
@@ -70,7 +69,7 @@ def scrape_pages():
 def write_to_csv(job_data):
     with open('filteredJobs.csv', mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(['Title', 'Company', 'Location', 'Date Posted', 'job_link'])
+        writer.writerow(['Title', 'Company', 'Date Posted', 'job_link'])
         for job in job_data:
             writer.writerow(job)
 
