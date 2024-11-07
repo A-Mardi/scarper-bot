@@ -11,7 +11,7 @@ service = Service(executable_path="chromedriver.exe")
 driver = webdriver.Chrome(service=service)
 
 base_url = "https://books.toscrape.com/catalogue/page-{}.html"
-max_number = 3
+max_number = 7
 
 def get_book(url):
     driver.get(url)
@@ -50,7 +50,7 @@ def display_books(book_data):
         print(f"Title: {title}\nPrice: {price}\nAvailability: {availability}\n")
 
 def write_to_csv(book_data):
-    with open('scrapedBooks.csv', mode='a', newline='', encoding='utf-8') as file:
+    with open('scrapedBooks.csv', mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(['Title', 'Price', 'Availability'])
         for book in book_data:
