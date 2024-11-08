@@ -1,10 +1,10 @@
 # ScraperBot
 
-**ScraperBot** is a versatile Python script that scrapes intern and Co-op positions from the [London Tech Jobs](https://londontechjobs.ca/) website. With minimal adjustments, it can be extended to scrape data from any website. The script utilizes Selenium for web automation and BeautifulSoup for parsing HTML, making it easy to extract various types of data.
+**ScraperBot** is a versatile Python script that scrapes intern and co-op positions from the [London Tech Jobs](https://londontechjobs.ca/) website. With minimal adjustments, it can be extended to scrape data from any website. The script utilizes Selenium for web automation and BeautifulSoup for parsing HTML, making it easy to extract various types of data.
 
 ## Features
 
-- Scrapes book information, including titles and prices, from multiple pages.
+- Scrapes job postings information, including posting date, company and application link, from multiple pages.
 - Saves the scraped data into a CSV file for convenient analysis.
 - Easily customizable to adapt to different websites by modifying URL patterns and HTML elements.
 
