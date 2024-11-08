@@ -1,6 +1,6 @@
 # ScraperBot
 
-**ScraperBot** is a versatile Python script that scrapes book information from the [Books to Scrape](https://books.toscrape.com/) website. With minimal adjustments, it can be extended to scrape data from any website. The script utilizes Selenium for web automation and BeautifulSoup for parsing HTML, making it easy to extract various types of data.
+**ScraperBot** is a versatile Python script that scrapes intern and Co-op positions from the [London Tech Jobs](https://londontechjobs.ca/) website. With minimal adjustments, it can be extended to scrape data from any website. The script utilizes Selenium for web automation and BeautifulSoup for parsing HTML, making it easy to extract various types of data.
 
 ## Features
 
