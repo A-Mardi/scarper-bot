@@ -30,28 +30,30 @@ pip install selenium beautifulsoup4 Pandas
 3. Run the script:
 
 ```bash
-python bookScraper.py
+python ltjScraper.py
 ```
 
-4. The scraped book data will be saved to `ScrapedBooks.csv` in the same directory.
+4. The scraped book data will be saved to `filteredJobs.csv` in the same directory.
 
 ## Example Output
 
-After running the script, the output will be saved in `ScrapedBooks.csv` and will contain data formatted as follows:
+After running the script, the output will be saved in `filteredJobs.csv` and will contain data formatted as follows:
 
 ```
-Title, Price, Availability
-A Light in the Attic, 51.77, In Stock
-Tipping the Velvet, 53.74, Out of Stock
+Title,Company,Date Posted,Link
+"developer, co-op",CARFAX Canada,"Oct 25, 2024",https://londontechjobs.ca/job.aspx?jid=0a497724-c291-48e4-86c6-69d8a10ec702
+associate architect intern,Canada Life,"Oct 23, 2024",https://londontechjobs.ca/job.aspx?jid=58190095-a957-4cff-8735-b2e95c9c3298
 ...
 ```
+
+Alternatively it can be viewed as spreadsheet on Excel or Google sheets
 
 ## Extending to Other Websites
 
 To adapt Scraper Bot for different websites:
 - Modify the `base_url` to match the target site's URL structure.
 - Change the variable and function names to something suitable
-- Update the HTML elements in the `get_book` function to extract the desired data points.
+- Update the HTML elements in the `get_jobs` function to extract the desired data points.
 
 
 
