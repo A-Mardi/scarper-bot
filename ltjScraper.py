@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import csv
 import time
+import re
 
 # Initialize the WebDriver
 service = Service(executable_path="chromedriver.exe")
@@ -30,7 +31,7 @@ def get_jobs(url):
             # Get job title and check if it matches "intern", "co-op", or "coop"
             title_element = job_card.find_element(By.CLASS_NAME, "gm-card-title")
             title = title_element.text.lower()
-            if "intern" in title or "co-op" in title or "coop" in title:
+            if re.search(r"\bintern\b|\bco-op\b|\bcoop\b", title):
                 
                 # Extract other relevant details
                 job_link = job_card.find_element(By.CLASS_NAME, "gm-card-link").get_attribute('href')
@@ -46,7 +47,7 @@ def get_jobs(url):
     return job_data
 
 def scrape_pages():
-    page_number = 2
+    page_number = 1
     all_jobs = []
 
     while True:
@@ -55,13 +56,18 @@ def scrape_pages():
         jobs = get_jobs(current_url)
         all_jobs.extend(jobs)
         
-        if not jobs:
-            print("No more jobs found. Ending scrape.")
-            break
+
         if page_number >= max_number:
             print(f"Reached the maximum number of pages: {max_number}")
             break
         page_number += 1  # Move to the next page
+
+        '''
+       if not jobs:
+            print("No more jobs found. Ending scrape.")
+            break
+        '''
+               
 
     return all_jobs
 
